@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="./node_modules/vue/dist/vue.min.js"></script>
+    <script src="./node_modules/vue-router/dist/vue-router.js"></script>
+    <script>
+        // 地址栏 路由范式
+
+        // （1）xxxxx.html#/user/1    params 动态路由参数
+        // (2) ooooo.html#/user?userId = 1  query
+
+
+        // Vue.use(VueRouter);
+        var UserParams = {
+            template: `<div>我是用户1</div>`,
+            created() {
+                console.log(this.$router);
+                console.log(this.$route);
+            }
+        };
+        var UserQuery = {
+            template: `<div>我是用户2</div>`,
+            created() {
+                console.log(this.$route);
+            },
+        }
+
+        var router = new VueRouter({
+            routes: [
+                {
+                    path: '/user/:id',
+                    name: 'userP',
+                    component: UserParams
+                },
+                {
+                    path:'/user',
+                    name: 'userQ',
+                    component:UserQuery
+                }
+            ]
+        })
+        var App = {
+            template:`
+             <div>
+               <router-link :to="{name:'userP',params:{id:1}}">用户一</router-link>
+               <router-link :to="{name:'userQ',query:{userId:2}}">用户二</router-link>
+
+               <router-view></router-view>
+               </div>
+            `
+        }
+        	// 5.将配置好的路由对象关联到vue实例化对象中
+		new Vue({
+			el:'#app',
+			router:router,
+			template:`<App />`,
+			components:{
+				App
+			}
+		});
+    </script>
+</body>
+
+</html>
