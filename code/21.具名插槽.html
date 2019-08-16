@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id="app">
+   <base-layout>
+     <template v-slot:header>
+       <h1>here is header</h1>
+     </template>
+     <!-- 默认v-slot:default -->
+     <p>A paragraph for the main content.</p>
+     <p>And another one.</p>
+    
+     <!-- 注意写法v-slot:name -->
+     <template v-slot:footer>
+        <h1>here is footer</h1>
+      </template>
+   </base-layout>
+  </div>
+  <script>
+    Vue.component('base-layout',{
+     template:`<div>
+     <header>
+     <slot name="header"></slot>
+     </header>
+     <main>
+     <slot></slot>
+     </main>
+     <footer>
+     <slot name="footer"></slot>
+     </footer>
+     </div>`
+    })
+    
+  
+    new Vue({
+      el:'#app',
+    })
+  </script>
+</body>
+</html>

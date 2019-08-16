@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./animate.css">
+  <script src='./node_modules/vue/dist/vue.js'>
+  </script>
+  <style>
+    button{
+      background: #fff;
+      padding:10px 20px;
+      border-radius: 10px;
+      border: #888 1px solid;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <transition 
+    appear
+    enter-active-class="animated wobble"
+    leave-active-class="animated jello"
+    appear-active-class="animated wobble"
+    >
+     <div v-show="show">Hello world</div>
+    </transition>
+    <button @click='handleClick'>toggle</button>
+  </div>
+  <script>
+   new Vue({
+     el:'#root',
+     data:{
+       show:true,
+     },
+     methods: {
+       handleClick(){
+        this.show=!this.show;
+       }
+     },
+   })
+  </script>
+</body>
+</html>
