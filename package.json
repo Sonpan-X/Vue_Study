@@ -1,0 +1,19 @@
+{
+  "name": "vue_study",
+  "version": "1.0.0",
+  "description": "### 1.vue 组件化实践 >通过element-ui中常用的组件实践，总结vue的组件的通信，以及学习element组件源码的总结。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sonpan-X/Vue_Study.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sonpan-X/Vue_Study/issues"
+  },
+  "homepage": "https://github.com/Sonpan-X/Vue_Study#readme"
+}
